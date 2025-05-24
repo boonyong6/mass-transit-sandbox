@@ -30,7 +30,7 @@ namespace GettingStarted
 
                         var entryAssembly = Assembly.GetEntryAssembly();
 
-                        x.AddConsumers(entryAssembly);
+                        x.AddConsumers(entryAssembly);  // Registers the consumers.
                         x.AddSagaStateMachines(entryAssembly);
                         x.AddSagas(entryAssembly);
                         x.AddActivities(entryAssembly);

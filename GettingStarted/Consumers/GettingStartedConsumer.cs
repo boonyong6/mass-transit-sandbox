@@ -5,7 +5,7 @@ namespace Company.Consumers
     using Contracts;
     using Microsoft.Extensions.Logging;
 
-    // Message handler (think of it like a controller in MVC).
+    // Message handler (kind of like a controller in MVC).
     public class GettingStartedConsumer :
         IConsumer<HelloMessage>
     {
@@ -16,7 +16,7 @@ namespace Company.Consumers
             _logger = logger;
         }
 
-        public Task Consume(ConsumeContext<HelloMessage> context)
+        public Task Consume(ConsumeContext<HelloMessage> context)  // context is kind of like HTTP context.
         {
             _logger.LogInformation("Hello {Name}", context.Message.Name);
 
