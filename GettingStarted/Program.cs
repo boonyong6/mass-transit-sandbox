@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using MassTransit;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace GettingStarted
@@ -34,11 +35,14 @@ namespace GettingStarted
                         x.AddSagas(entryAssembly);
                         x.AddActivities(entryAssembly);
 
+                        // Not for production, but useful for testing.
                         x.UsingInMemory((context, cfg) =>
                         {
                             cfg.ConfigureEndpoints(context);
                         });
                     });
+
+                    services.AddHostedService<Worker>();
                 });
     }
 }
