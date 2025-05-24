@@ -19,3 +19,11 @@
     ```
 
   - Message
+
+## RabbitMQ Quick Start
+
+- Package to install:
+
+  ```bash
+  dotnet add package MassTransit.RabbitMQ
+  ```

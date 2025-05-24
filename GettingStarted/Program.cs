@@ -35,10 +35,16 @@ namespace GettingStarted
                         x.AddSagas(entryAssembly);
                         x.AddActivities(entryAssembly);
 
-                        // Not for production, but useful for testing.
-                        x.UsingInMemory((context, cfg) =>
+                        // Configure to use RabbitMQ transport.
+                        x.UsingRabbitMq((ctx, cfg) =>
                         {
-                            cfg.ConfigureEndpoints(context);
+                            cfg.Host("localhost", "/", h =>
+                            {
+                                h.Username("guest");
+                                h.Password("guest");
+                            });
+
+                            cfg.ConfigureEndpoints(ctx);
                         });
                     });
 
